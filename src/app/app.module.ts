@@ -3,13 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { StoreModule } from '@ngrx/store';
 import { simpleReducer } from './simple.reducer';
-
+import { postReducer } from './post/post.reducer';
 
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [AppComponent],
-	imports: [BrowserModule, StoreModule.forRoot({ message: simpleReducer })],
+	imports: [BrowserModule, FormsModule, StoreModule.forRoot({ post: postReducer, message: simpleReducer })],
 	providers: [],
 	bootstrap: [AppComponent]
 })

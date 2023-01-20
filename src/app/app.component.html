@@ -1,7 +1,17 @@
-<h1>{{ message$ | async }}</h1>
+<div *ngIf="posts$ | async as p">
+	<div class="container-1">
+		<h2>{{ p.text }}</h2>
+		<h4>Votes: {{ p.likes }}</h4>
+	</div>
 
-<div class="buttons-container">
-	<button (click)="spanishMessage()" class="spanish">Spanish</button>
-	<button (click)="frenchMessage()" class="french">French</button>
+	<div class="buttons-contaienr">
+		<button (click)="upvote()">Upvote</button>
+		<button (click)="downvote()">Downvote</button>
+		<button (click)="resetPost()">Reset</button>
+	</div>
+
+	<div class="container-2">
+		<input type="text" [(ngModel)]="text" />
+		<button (click)="editText()">Change Tittle</button>
+	</div>
 </div>
-
